@@ -1,10 +1,14 @@
 package com.uca.capas.labo5.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
@@ -38,6 +42,9 @@ public class Estudiante {
 	
 	@Column(name="estado")
 	private Boolean estado;
+	
+	@OneToMany(mappedBy="estudiante", fetch=FetchType.EAGER)
+	private List<Computadora> computadoras;
 	
 	public Estudiante() {
 		
@@ -81,6 +88,14 @@ public class Estudiante {
 
 	public void setEstado(Boolean estado) {
 		this.estado = estado;
+	}
+
+	public List<Computadora> getComputadoras() {
+		return computadoras;
+	}
+
+	public void setComputadoras(List<Computadora> computadoras) {
+		this.computadoras = computadoras;
 	}
 
 	public String getEstadoDelegate() {

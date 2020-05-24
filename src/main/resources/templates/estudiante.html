@@ -21,7 +21,24 @@
          <th th:text="${estudiante.estadoDelegate}"/>
        </tr>
    </table>
-
+  <br> <br>
+  <label>Computadoras del estudiante</label>
+  <table>
+    <thead>
+      <tr>
+        <th>Id computadora</th>
+        <th>Marca</th>
+      </tr>
+    <thead/>
+    <tbody>
+      <th:block th:each="comp, row: ${estudiante.computadoras}">
+       <tr>
+         <td th:text="${comp.codigoComputadora}"/>
+         <td th:text="${comp.marca}"/>
+       </tr>
+      </th:block>
+    </tbody>
+  </table>
   
   </body>
 </html>
