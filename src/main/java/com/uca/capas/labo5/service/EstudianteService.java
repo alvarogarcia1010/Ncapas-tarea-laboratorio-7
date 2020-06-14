@@ -4,10 +4,17 @@ import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 
+import com.uca.capas.labo5.DTO.EstudianteDTO;
 import com.uca.capas.labo5.domain.Estudiante;
 
 public interface EstudianteService {
 	public List<Estudiante> findAll() throws DataAccessException;
+	
+	public List<EstudianteDTO> pruebaDTO() throws DataAccessException;
+	
+	public List<Estudiante> filtrarPor(String cadena) throws DataAccessException;
+	
+	public List<Estudiante> empiezaCon(String cadena) throws DataAccessException;
 	
 	public Estudiante findOne(Integer code) throws DataAccessException;
 
